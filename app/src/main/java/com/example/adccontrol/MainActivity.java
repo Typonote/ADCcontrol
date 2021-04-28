@@ -26,35 +26,30 @@ import java.util.Set;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
-
     SeekBar seekRegister;
     TextView tvRegisterValue;
     ImageView img1, imgBluetooth;
     BluetoothAdapter bluetoothAdapter;
-    int pairedDeviceCount = 0;
+    int pairedDeviceCount=0;
     Set<BluetoothDevice> devices;
     BluetoothDevice remoteDevice;
     BluetoothSocket bluetoothSocket;
-    OutputStream outputStream = null;
-    InputStream inputStream = null;
-    Thread workerThread = null;
-    String strDelimiter = "\n";
-    char charDelimiter = '\n';
+    OutputStream outputStream=null;
+    InputStream inputStream=null;
+    Thread workerThread=null;
+    String strDelimiter="\n";
+    char charDelimiter='\n';
     byte readBuffer[];
     int readBufferPosition;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        seekRegister = findViewById(R.id.seekRegister);
-        tvRegisterValue = findViewById(R.id.tvRegisterValue);
-        img1 = findViewById(R.id.img1);
-        imgBluetooth = findViewById(R.id.imgBluetooth);
-
-            checkBluetooth();
-
+        seekRegister=findViewById(R.id.seekRegister);
+        tvRegisterValue=findViewById(R.id.tvRegisterValue);
+        img1=findViewById(R.id.img1);
+        imgBluetooth=findViewById(R.id.imgBluetooth);
+        checkBluetooth();
     }//onCreate 메서드 끝~~
 
     //스마트폰의 블루투스 지원 여부 검사
@@ -147,15 +142,15 @@ public class MainActivity extends AppCompatActivity {
                                         @Override
                                         public void run() {
                                             //data변수에 수신된 문자열에 대한 처리 작업
-                                            int value = Integer.parseInt(data);
-                                            tvRegisterValue.setText("가변저항 값 :"+value);
+                                            int value=Integer.parseInt(data);
+                                            tvRegisterValue.setText("가변저항 값 : " + value);
                                             seekRegister.setProgress(value);
                                             if(value>800) {
-                                                img1.setImageResource(R.drawable.cat);
-                                            }else if(value>500){
                                                 img1.setImageResource(R.drawable.mon);
-                                            }else{
+                                            }else if(value>500){
                                                 img1.setImageResource(R.drawable.dog);
+                                            }else{
+                                                img1.setImageResource(R.drawable.cat);
                                             }
                                         }
                                     });
