@@ -12,16 +12,33 @@
         android:id="@+id/seekRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        android:max="1023"/>
 
     <TextView
+        android:id="@+id/tvRegisterValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="가변저항 값 : 0"/>
+        android:text="가변저항 값 : 0"
+        android:layout_marginBottom="20dp"/>
 
     <ImageView
         android:id="@+id/img1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="right|bottom"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgBluetooth"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/bluetooth_grayicon"/>
+
+    </LinearLayout>
 
 </LinearLayout>
